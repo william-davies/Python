@@ -1,0 +1,30 @@
+#s is a string of lower case characters.
+#This programme prints the longest substring of s in which the letters occur in 
+#alphabetical order. 
+#In the case of ties, the programme prints the first substring. 
+i = 0
+count = 0
+long_count = 0
+long_string = ''
+while i < len(s)-1:#until penultimate char
+    if s[i] <= s[i+1]:#continuing growing count
+        count += 1
+    else:#finish count
+        count += 1
+        if count > long_count:
+            long_count = count#update long_count
+            long_string = s[i-(long_count-1):i+1]
+            count = 0
+        else:
+            count = 0 
+    i += 1
+if s[i] >= s[i-1]:#ultimate char
+#count increase when s[i+1] is less than s[i] so final char is not added to 
+#count
+    count += 1
+    if count > long_count:
+        long_count = count#update long_count
+        long_string = s[i-(long_count-1):i+1]
+#long_count-1 because index starts at 0
+#i+1 because slicing is non-inclusive
+print('Longest substring in alphabetical order is: ' + (long_string))
