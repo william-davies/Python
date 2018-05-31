@@ -1,6 +1,19 @@
+# Import math library in order to call the tan function and to get the pi constant
 from math import *
-def polysum(n,s):
+
+
+def polysum(n, s):
+    """
+    n: number of sides of regular polygon
+    s: length of each side of regular polygon
+
+    returns: sum of area and square of perimeter of regular polygon, rounded to 4 decimal places
+    """
+    # calculate area of polygon
     area = (0.25*n*s**2)/(tan(pi/n))
+    # calculate perimeter of polygon
     perimeter = n*s
-    sum = area + perimeter**2
-    return round(sum,4)
+    # calculate sum of area and square of perimeter of polygon
+    summation = area + perimeter**2
+    # round sum to 4 decimal places and return float
+    return round(summation, 4)
